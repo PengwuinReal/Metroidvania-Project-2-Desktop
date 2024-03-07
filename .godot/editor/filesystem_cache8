@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1709790894
+icon.svg::CompressedTexture2D::4939837086749301236::1709600671::1709600671::1::::<><>::
+node_2d.gd::GDScript::-1::1709627853::0::1::::<>Node2D<>::
+node_2d.tscn::PackedScene::8497290982314358405::1709775511::0::1::::<><>::res://node_2d.gd<>uid://dwhnmu8hpukie::::res://player.tscn
+Player.gd::GDScript::-1::1709775511::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8718679107611696364::1709775511::0::1::::<><>::res://Player.gd<>uid://ccm5noy8yxftc::::res://icon.svg
+::res://Assets/::1709600672
+fireworks3.png::CompressedTexture2D::4761526163224086963::1709600672::1709600672::1::::<><>::
