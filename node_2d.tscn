@@ -17,7 +17,8 @@ position = Vector2(360, -220)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(326.471, 417.188)
-scale = Vector2(1.03571, 1.0506)
+rotation = 0.216847
+scale = Vector2(11.6501, 0.184551)
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -31,7 +32,7 @@ scale = Vector2(-656.331, -146.467)
 texture = SubResource("CanvasTexture_n1qwa")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1377.94, 360.938)
+position = Vector2(1220.59, -37.5001)
 scale = Vector2(1.03571, 1.0506)
 metadata/_edit_group_ = true
 
@@ -49,7 +50,7 @@ scale = Vector2(1, 2.01856)
 polygon = PackedVector2Array(183.448, 275.086, 186.344, 348.175, 840.002, 347.232, 840.002, 275.086)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(857.354, -90.6251)
+position = Vector2(1970.59, 4.6875)
 rotation = -1.57079
 scale = Vector2(1.03571, 1.0506)
 metadata/_edit_group_ = true
