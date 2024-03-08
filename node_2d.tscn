@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtcfe2ahmin8p"]
+[gd_scene load_steps=6 format=3 uid="uid://dtcfe2ahmin8p"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_osakf"]
 [ext_resource type="PackedScene" uid="uid://dwhnmu8hpukie" path="res://player.tscn" id="2_d0tuu"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_n1qwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0adk0"]
+size = Vector2(70.2389, 780.147)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j5hak"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(222, 345)
@@ -17,7 +22,6 @@ position = Vector2(360, -220)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(326.471, 417.188)
-rotation = 0.216847
 scale = Vector2(11.6501, 0.184551)
 metadata/_edit_group_ = true
 
@@ -32,15 +36,9 @@ scale = Vector2(-656.331, -146.467)
 texture = SubResource("CanvasTexture_n1qwa")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1220.59, -37.5001)
+position = Vector2(1605.88, -321.875)
 scale = Vector2(1.03571, 1.0506)
 metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(64.8226, -29.5229)
-rotation = 3.14159
-scale = Vector2(656.331, 146.467)
-texture = SubResource("CanvasTexture_n1qwa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 editor_description = "cool block thing
@@ -49,18 +47,22 @@ position = Vector2(-451.523, -658.85)
 scale = Vector2(1, 2.01856)
 polygon = PackedVector2Array(183.448, 275.086, 186.344, 348.175, 840.002, 347.232, 840.002, 275.086)
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(64.8226, -29.5229)
+rotation = 3.14159
+scale = Vector2(656.331, 146.467)
+texture = SubResource("CanvasTexture_n1qwa")
+
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(1970.59, 4.6875)
-rotation = -1.57079
-scale = Vector2(1.03571, 1.0506)
+position = Vector2(-160.294, -271.875)
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-position = Vector2(-450.897, -659.979)
-scale = Vector2(1, 2.01856)
-polygon = PackedVector2Array(187.068, 276.196, 186.344, 348.175, 840.002, 347.232, 840.002, 275.086)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(974.825, 160.386)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_0adk0")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-position = Vector2(64.8226, -29.5229)
-scale = Vector2(-656.331, -146.467)
-texture = SubResource("CanvasTexture_n1qwa")
+position = Vector2(974.757, 160.37)
+scale = Vector2(-70.0894, 780.142)
+texture = SubResource("CanvasTexture_j5hak")

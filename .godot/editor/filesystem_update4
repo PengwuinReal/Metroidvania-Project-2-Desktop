@@ -1,3 +1,4 @@
 res://node_2d.tscn
-res://player.tscn
+res://node_2d.gd
 res://Player.gd
+res://player.tscn
