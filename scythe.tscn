@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3jh2d8cxgl8m"]
+
+[ext_resource type="Texture2D" uid="uid://qnbbwrbb8bwj" path="res://Assets/Scythe256px.png" id="1_tms72"]
+
+[node name="Scythe" type="Area2D"]
+position = Vector2(0, 64)
+
+[node name="ScytheHitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -64)
+polygon = PackedVector2Array(96, 116, 104, 116, 104, 112, 112, 112, 112, 108, 116, 108, 116, 104, 120, 104, 120, 96, 124, 96, 124, 80, 128, 80, 128, 48, 124, 48, 124, 36, 120, 36, 120, 28, 116, 28, 116, 20, 112, 20, 112, 16, 108, 16, 108, 12, 100, 12, 100, 8, 92, 8, 92, 4, 80, 4, 80, 0, 72, 0, 64, 0, 64, 4, 56, 4, 56, 8, 64, 8, 64, 12, 68, 12, 68, 16, 72, 16, 72, 16, 76, 16, 76, 20, 83, 20, 88, 20, 88, 24, 88, 28, 92, 28, 92, 32, 96, 32, 96, 36, 100, 36, 100, 40, 104, 40, 104, 44, 108, 44, 108, 60, 112, 60, 112, 64, 112, 72, 112, 80, 112, 88, 108, 88, 108, 96, 104, 96, 104, 100, 100, 100, 100, 108, 96, 108)
+metadata/_edit_group_ = true
+
+[node name="ScytheSprite" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tms72")
+metadata/_edit_group_ = true

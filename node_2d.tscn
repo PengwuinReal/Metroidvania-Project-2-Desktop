@@ -11,17 +11,19 @@ size = Vector2(70.2389, 780.147)
 [sub_resource type="CanvasTexture" id="CanvasTexture_j5hak"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(222, 345)
+position = Vector2(216, 336)
 scale = Vector2(0.68, 0.64)
 script = ExtResource("1_osakf")
 
 [node name="Player" parent="." instance=ExtResource("2_d0tuu")]
-position = Vector2(360, -220)
+position = Vector2(1611.76, -675)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(326.471, 417.188)
+rotation = 3.14159
 scale = Vector2(11.6501, 0.184551)
 metadata/_edit_group_ = true
 
@@ -54,7 +56,8 @@ scale = Vector2(656.331, 146.467)
 texture = SubResource("CanvasTexture_n1qwa")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(-160.294, -271.875)
+position = Vector2(-976.471, -25)
+scale = Vector2(1.00913, 0.0977944)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]

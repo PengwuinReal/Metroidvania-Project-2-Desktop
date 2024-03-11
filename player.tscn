@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwhnmu8hpukie"]
+[gd_scene load_steps=4 format=3 uid="uid://dwhnmu8hpukie"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8h7hj"]
 [ext_resource type="Texture2D" uid="uid://ccm5noy8yxftc" path="res://icon.svg" id="2_74xi2"]
+[ext_resource type="PackedScene" uid="uid://b3jh2d8cxgl8m" path="res://scythe.tscn" id="3_3q8ds"]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(222, 51)
+position = Vector2(64, 64)
+floor_stop_on_slope = false
 script = ExtResource("1_8h7hj")
 
 [node name="PlayerHitbox" type="CollisionPolygon2D" parent="."]
-position = Vector2(-1944.89, -807.188)
-scale = Vector2(22.4792, 15.5347)
-polygon = PackedVector2Array(83.8059, 47.9693, 83.8059, 55.887, 89.2776, 55.887, 89.2776, 47.9693)
+position = Vector2(158.4, -12.6)
+polygon = PackedVector2Array(-222, -51, -94, -51, -94, 77, -222, 77)
+metadata/_edit_group_ = true
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(0.399994, 0.400002)
 texture = ExtResource("2_74xi2")
+metadata/_edit_group_ = true
+
+[node name="Scythe" parent="." instance=ExtResource("3_3q8ds")]
+position = Vector2(24, 0)
