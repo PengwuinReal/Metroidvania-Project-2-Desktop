@@ -47,7 +47,6 @@ func _physics_process(delta):
 	
 	if direction: #left = -1 right = 1
 		velocity.x = direction * SPEED
- 		#i wanna flip this node when going left PLEASEEEEEEEEEEEEEEE FIXXXXXX
 		if Input.is_action_pressed("left") and FACING == 1: 
 			scale.x = -1
 			FACING = -1
@@ -87,4 +86,15 @@ func _physics_process(delta):
 				
 	move_and_collide(Vector2(velocity.x, velocity.y))
 	move_and_slide()
+
+
+
+
+
+
+
+
+
+
+
 
