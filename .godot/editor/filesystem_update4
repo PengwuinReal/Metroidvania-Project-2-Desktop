@@ -1,4 +1,4 @@
-res://node_2d.tscn
 res://player.tscn
+res://node_2d.tscn
 res://scythe.tscn
-res://Player.gd
+res://enemy.tscn

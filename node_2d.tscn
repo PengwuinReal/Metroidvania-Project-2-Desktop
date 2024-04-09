@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtcfe2ahmin8p"]
+[gd_scene load_steps=7 format=3 uid="uid://dtcfe2ahmin8p"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_osakf"]
 [ext_resource type="PackedScene" uid="uid://dwhnmu8hpukie" path="res://player.tscn" id="2_d0tuu"]
@@ -9,6 +9,12 @@
 size = Vector2(70.2389, 780.147)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_j5hak"]
+
+[sub_resource type="Curve2D" id="Curve2D_k5sc4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1729.41, -125, 0, 0, 0, 0, -1352.94, -125, 0, 0, 0, 0, -1352.94, 175, 0, 0, 0, 0, -1729.41, 175, 0, 0, 0, 0, -1729.41, -125)
+}
+point_count = 5
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(216, 336)
@@ -69,3 +75,9 @@ shape = SubResource("RectangleShape2D_0adk0")
 position = Vector2(974.757, 160.37)
 scale = Vector2(-70.0894, 780.142)
 texture = SubResource("CanvasTexture_j5hak")
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_k5sc4")
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
+position = Vector2(-1729.41, -125)

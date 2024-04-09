@@ -21,3 +21,6 @@ metadata/_edit_group_ = true
 
 [node name="Scythe" parent="." instance=ExtResource("3_3q8ds")]
 position = Vector2(24, 0)
+
+[node name="PlayerHitbox2" type="Area2D" parent="."]
+monitorable = false

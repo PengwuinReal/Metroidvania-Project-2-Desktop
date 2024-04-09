@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal hit
 const WALL_BOUNCE = 10.0 #amount of speed
 var SPEED = 10.0 #left and right speed
 const JUMP_VELOCITY = -15.0
@@ -7,7 +8,7 @@ const RESISTANCE = 0.1 # "gliding" in air
 const SLIDE = 0.7 # sliding on ground
 const CLIMB_SPEED = 5.0
 var FACING = 1 #left = -1 right = 1, for a boolean
-
+var ATK = 10000 #attack scythe hitbox (not damage)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 30
@@ -36,15 +37,23 @@ func _physics_process(delta):
 	else:
 		SPEED = 10
 	if Input.is_action_just_pressed("attack"):
+		ATK = 0
+	if ATK < 125:
+		$"Scythe".set_rotation_degrees(ATK-25)
+		ATK += 4
+	if ATK >= 125:
+		$"Scythe".set_rotation_degrees(0)
+	"""
+	if Input.is_action_just_pressed("attack"):
 		$"Scythe".set_rotation_degrees(-50)
 	if $"Scythe".get_rotation_degrees() <= 100 and Input.is_action_pressed("attack"):
 		$"Scythe".set_rotation_degrees($"Scythe".get_rotation_degrees() + 10)
 	if Input.is_action_just_released("attack") or $"Scythe".get_rotation_degrees() >= 100:
 		$"Scythe".set_rotation_degrees(0)
+	"""
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
 	if direction: #left = -1 right = 1
 		velocity.x = direction * SPEED
 		if Input.is_action_pressed("left") and FACING == 1: 
@@ -54,7 +63,7 @@ func _physics_process(delta):
 			scale.x = -1
 			FACING = 1
 		#print(velocity.x) #debug
-		print(scale.x)
+		#print(scale.x)
 	else:
 		if is_on_floor(): 
 			velocity.x = move_toward(velocity.x, 0, SLIDE)
