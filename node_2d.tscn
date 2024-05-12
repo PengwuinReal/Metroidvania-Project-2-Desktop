@@ -45,8 +45,12 @@ scale = Vector2(-656.331, -146.467)
 texture = SubResource("CanvasTexture_n1qwa")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+light_mask = 31
+visibility_layer = 31
 position = Vector2(1605.88, -321.875)
 scale = Vector2(1.03571, 1.0506)
+collision_layer = 255
+collision_mask = 255
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
@@ -61,6 +65,13 @@ position = Vector2(64.8226, -29.5229)
 rotation = 3.14159
 scale = Vector2(656.331, 146.467)
 texture = SubResource("CanvasTexture_n1qwa")
+
+[node name="Enemy" parent="." instance=ExtResource("3_qpf3o")]
+position = Vector2(1611.76, -925)
+scale = Vector2(1.24399, 1.33979)
+collision_layer = 2
+collision_mask = 2
+floor_stop_on_slope = false
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-976.471, -25)
@@ -78,15 +89,15 @@ scale = Vector2(-70.0894, 780.142)
 texture = SubResource("CanvasTexture_j5hak")
 
 [node name="EnemyPath" type="Path2D" parent="."]
-position = Vector2(2270.59, -712.5)
+position = Vector2(1952.94, 100)
 curve = SubResource("Curve2D_k5sc4")
 
 [node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
 position = Vector2(-1729.41, -125)
 
-[node name="Enemy" parent="EnemyPath/EnemySpawnLocation" instance=ExtResource("3_qpf3o")]
-
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="hit" from="Player" to="Player" method="_on_hit"]
+[connection signal="hit" from="Player" to="Enemy" method="_on_player_hit"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

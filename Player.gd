@@ -107,3 +107,7 @@ func _physics_process(delta):
 
 
 
+
+
+func _on_hit():
+	pass # Replace with function body.

@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
-
+"""
 func _on_enemy_timer_timeout():
 	# Create a new instance of the enemy scene.
 	var enemy = enemy_scene.instantiate()
@@ -35,3 +35,4 @@ func _on_enemy_timer_timeout():
 
 	# Spawn the enemy by adding it to the Main scene.
 	add_child(enemy)
+"""
