@@ -2,3 +2,6 @@ res://node_2d.tscn
 res://player.tscn
 res://scythe.tscn
 res://enemy.tscn
+res://Player.gd
+res://node_2d.gd
+res://Enemy.gd

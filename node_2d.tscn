@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtcfe2ahmin8p"]
+[gd_scene load_steps=9 format=3 uid="uid://dtcfe2ahmin8p"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_osakf"]
 [ext_resource type="PackedScene" uid="uid://dwhnmu8hpukie" path="res://player.tscn" id="2_d0tuu"]
 [ext_resource type="PackedScene" uid="uid://ci3p3nh5uokqc" path="res://enemy.tscn" id="3_qpf3o"]
+[ext_resource type="Script" path="res://EnemySpawnTimer.gd" id="3_r5idu"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_n1qwa"]
 
@@ -21,6 +22,7 @@ point_count = 5
 position = Vector2(216, 336)
 scale = Vector2(0.68, 0.64)
 script = ExtResource("1_osakf")
+enemy_scene = ExtResource("3_qpf3o")
 
 [node name="Player" parent="." instance=ExtResource("2_d0tuu")]
 position = Vector2(1611.76, -675)
@@ -32,6 +34,8 @@ metadata/_edit_group_ = true
 position = Vector2(326.471, 417.188)
 rotation = 3.14159
 scale = Vector2(11.6501, 0.184551)
+collision_layer = 255
+collision_mask = 255
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -66,16 +70,11 @@ rotation = 3.14159
 scale = Vector2(656.331, 146.467)
 texture = SubResource("CanvasTexture_n1qwa")
 
-[node name="Enemy" parent="." instance=ExtResource("3_qpf3o")]
-position = Vector2(1611.76, -925)
-scale = Vector2(1.24399, 1.33979)
-collision_layer = 2
-collision_mask = 2
-floor_stop_on_slope = false
-
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-976.471, -25)
 scale = Vector2(1.00913, 0.0977944)
+collision_layer = 255
+collision_mask = 255
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
@@ -96,8 +95,11 @@ curve = SubResource("Curve2D_k5sc4")
 position = Vector2(-1729.41, -125)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
+script = ExtResource("3_r5idu")
+
+[node name="Enemy" parent="." instance=ExtResource("3_qpf3o")]
 
 [connection signal="hit" from="Player" to="Player" method="_on_hit"]
-[connection signal="hit" from="Player" to="Enemy" method="_on_player_hit"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

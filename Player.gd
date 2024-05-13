@@ -9,21 +9,13 @@ const SLIDE = 0.7 # sliding on ground
 const CLIMB_SPEED = 5.0
 var FACING = 1 #left = -1 right = 1, for a boolean
 var ATK = 10000 #attack scythe hitbox (not damage)
+var life_force = 3
+var life_state = 'alive'
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 30
 
-func positionreset(): # when a key is pressed, will set the position and set velocities to 0
-	var spawn_x = 360
-	var spawn_y = -220
-	position = Vector2(spawn_x, spawn_y)
-	velocity.x = 0
-	velocity.y = 0
-	
-func _input(event):
-	if Input.is_key_pressed(KEY_R): #reset character to spawn button
-		positionreset()
-	
+
 		
 		
 func _physics_process(delta):
@@ -36,21 +28,9 @@ func _physics_process(delta):
 		SPEED = 20
 	else:
 		SPEED = 10
-	if Input.is_action_just_pressed("attack"):
-		ATK = 0
-	if ATK < 125:
-		$"Scythe".set_rotation_degrees(ATK-25)
-		ATK += 4
-	if ATK >= 125:
-		$"Scythe".set_rotation_degrees(0)
-	"""
-	if Input.is_action_just_pressed("attack"):
-		$"Scythe".set_rotation_degrees(-50)
-	if $"Scythe".get_rotation_degrees() <= 100 and Input.is_action_pressed("attack"):
-		$"Scythe".set_rotation_degrees($"Scythe".get_rotation_degrees() + 10)
-	if Input.is_action_just_released("attack") or $"Scythe".get_rotation_degrees() >= 100:
-		$"Scythe".set_rotation_degrees(0)
-	"""
+	if life_force <= 0 and life_state == 'alive':
+		print('bananas')
+		queue_free()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -62,8 +42,6 @@ func _physics_process(delta):
 		if Input.is_action_pressed("right") and FACING == -1:
 			scale.x = -1
 			FACING = 1
-		#print(velocity.x) #debug
-		#print(scale.x)
 	else:
 		if is_on_floor(): 
 			velocity.x = move_toward(velocity.x, 0, SLIDE)
@@ -97,17 +75,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func _on_area_2d_body_entered(body):
+	if body.name == 'Enemy':
+		life_force -= 1
+		print(life_force)
 
-
-
-
-
-
-
-
-
-
-
-
-func _on_hit():
-	pass # Replace with function body.
+		
