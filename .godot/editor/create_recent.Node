@@ -1,3 +1,6 @@
+Label
+Sprite2D
+TextureProgressBar
 Area2D
 StaticBody2D
 RigidBody2D
@@ -6,9 +9,7 @@ CollisionPolygon2D
 Timer
 VisibleOnScreenNotifier2D
 CollisionShape2D
-Sprite2D
 Path2D
 PathFollow2D
 Camera2D
 Node
-Node2D

@@ -2,14 +2,21 @@ extends Node2D
 
 @export var enemy_scene: PackedScene 
 
+
 # Called when the node enters the scene tree for the first time.
+func _initialize():
+	pass
+
 func _ready():
 	Engine.max_fps = 144
-	$EnemySpawnTimer.start()
+	_initialize()
+	#$EnemySpawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+	
 
 	
 

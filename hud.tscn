@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://7y86rlfsm2np"]
+
+[ext_resource type="Script" path="res://LifeBar.gd" id="1_enoh1"]
+[ext_resource type="Script" path="res://Kills.gd" id="2_41bvp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2thoo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LifeBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -622.0
+offset_top = -222.0
+offset_right = -620.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(196.091, 62.1682)
+max_value = 3.0
+value = 3.0
+texture_progress = SubResource("CanvasTexture_2thoo")
+tint_progress = Color(1, 0, 0, 1)
+script = ExtResource("1_enoh1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 128.0
+offset_right = 368.0
+offset_bottom = 151.0
+scale = Vector2(3.00548, 2.74188)
+script = ExtResource("2_41bvp")

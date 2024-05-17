@@ -4,16 +4,17 @@ signal hit
 const WALL_BOUNCE = 10.0 #amount of speed
 var SPEED = 10.0 #left and right speed
 const JUMP_VELOCITY = -15.0
-const RESISTANCE = 0.1 # "gliding" in air
+const RESISTANCE = 0.1 # "sliding" in air
 const SLIDE = 0.7 # sliding on ground
 const CLIMB_SPEED = 5.0
 var FACING = 1 #left = -1 right = 1, for a boolean
 var ATK = 10000 #attack scythe hitbox (not damage)
 var life_force = 3
 var life_state = 'alive'
-
+var kills = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 30
+
 
 
 		
@@ -23,6 +24,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
+
 	
 	if Input.is_action_pressed("sprint"):
 		SPEED = 20

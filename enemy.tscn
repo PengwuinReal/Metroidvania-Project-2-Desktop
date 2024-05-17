@@ -17,7 +17,6 @@ texture = ExtResource("2_r8fbo")
 polygon = PackedVector2Array(-8, 56, 56, 56, 56, -8, -8, -8)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

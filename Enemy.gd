@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var gravity = 30
-var hp = 3
+var hp = 1
 var life_state = "alive"
 
 # Called when the node enters the scene tree for the first time.
@@ -16,13 +16,20 @@ func _physics_process(delta):
 	if hp <= 0 and life_state == 'alive':
 		print('apples')
 		queue_free()
+		$".".get_parent().get_node("Player").kills += 1
+	
 		
 	"""
 	Player location/enemy AI
 	"""
-	var selfpos = get_position()
-	var targetpos = get_node()
-
+	
+	var targetpos = $".".get_parent().get_node("Player").position
+	if position[0] > targetpos[0]:
+		velocity.x = -4
+	else:
+		velocity.x = 4
+	
+	
 	
 	move_and_collide(Vector2(velocity.x, velocity.y))
 	move_and_slide()
