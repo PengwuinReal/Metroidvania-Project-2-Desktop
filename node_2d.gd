@@ -9,6 +9,7 @@ func _initialize():
 
 func _ready():
 	Engine.max_fps = 144
+	
 	_initialize()
 	#$EnemySpawnTimer.start()
 
@@ -23,6 +24,7 @@ func _process(delta):
 func _on_enemy_spawn_timer_timeout():
 	# Create a new instance of the enemy scene.
 	var enemy = enemy_scene.instantiate()
-
+	enemy.name = "Enemy"
 	# Spawn the enemy by adding it to the Main scene.
 	add_child(enemy)
+	#print(enemy)

@@ -23,6 +23,7 @@ Node2d="*res://node_2d.gd"
 
 window/size/viewport_width=1500
 window/size/viewport_height=700
+window/size/mode=3
 
 [input]
 

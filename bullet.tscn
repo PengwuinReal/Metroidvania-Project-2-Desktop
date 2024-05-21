@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://6mfeam8bnh3b"]
+
+[ext_resource type="Texture2D" uid="uid://cvhfchhsf0o8v" path="res://Assets/fireball1cropped.png" id="1_jtrly"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_om78p"]
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_om78p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 6)
+scale = Vector2(0.5, 0.214286)
+texture = ExtResource("1_jtrly")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 34, 0, 34, 12, 0, 12)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 34, 0, 34, 12, 0, 12)
+
+[node name="Lifespan" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]

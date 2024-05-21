@@ -1,10 +1,6 @@
 res://node_2d.tscn
-res://Enemy.gd
 res://player.tscn
 res://scythe.tscn
 res://enemy.tscn
-res://node_2d.gd
-res://Player.gd
-res://LifeBar.gd
 res://hud.tscn
-res://Kills.gd
+res://bullet.tscn

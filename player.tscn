@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwhnmu8hpukie"]
+[gd_scene load_steps=5 format=3 uid="uid://dwhnmu8hpukie"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8h7hj"]
 [ext_resource type="Texture2D" uid="uid://ccm5noy8yxftc" path="res://icon.svg" id="2_74xi2"]
 [ext_resource type="PackedScene" uid="uid://b3jh2d8cxgl8m" path="res://scythe.tscn" id="3_3q8ds"]
+[ext_resource type="PackedScene" uid="uid://7y86rlfsm2np" path="res://hud.tscn" id="4_cojso"]
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(64, 64)
@@ -30,6 +31,19 @@ metadata/_edit_group_ = true
 
 [node name="Scythe" parent="." instance=ExtResource("3_3q8ds")]
 position = Vector2(24, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hud" parent="Camera2D" instance=ExtResource("4_cojso")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -752.0
+offset_top = -352.0
+offset_right = -752.0
+offset_bottom = -352.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

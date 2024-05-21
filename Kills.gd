@@ -8,5 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	set_text("Score: " + str($".".get_parent().get_parent().get_parent().kills))
 	

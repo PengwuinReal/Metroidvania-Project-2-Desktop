@@ -9,7 +9,7 @@ const SLIDE = 0.7 # sliding on ground
 const CLIMB_SPEED = 5.0
 var FACING = 1 #left = -1 right = 1, for a boolean
 var ATK = 10000 #attack scythe hitbox (not damage)
-var life_force = 3
+var life_force = 5
 var life_state = 'alive'
 var kills = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -31,8 +31,11 @@ func _physics_process(delta):
 	else:
 		SPEED = 10
 	if life_force <= 0 and life_state == 'alive':
-		print('bananas')
-		queue_free()
+		life_state = 'dead'
+		$"Camera2D/Hud/BlackBackdrop".visible = true
+		$"Camera2D/Hud/GameOver".visible = true
+		$"Camera2D/Hud/GameOver".set_text("Game Over\nScore: " + str(kills))
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -41,9 +44,14 @@ func _physics_process(delta):
 		if Input.is_action_pressed("left") and FACING == 1: 
 			scale.x = -1
 			FACING = -1
+			$"Camera2D".scale.x = -1
+			
 		if Input.is_action_pressed("right") and FACING == -1:
 			scale.x = -1
 			FACING = 1
+			$"Camera2D".scale.x = 1
+	
+			
 	else:
 		if is_on_floor(): 
 			velocity.x = move_toward(velocity.x, 0, SLIDE)
@@ -70,16 +78,12 @@ func _physics_process(delta):
 				
 			else: #on right side of wall
 				velocity.x = WALL_BOUNCE
-		#print(wall_normal[0])#debug
-		#print(velocity.x)#debug
-				
+
 	move_and_collide(Vector2(velocity.x, velocity.y))
 	move_and_slide()
 
 
 func _on_area_2d_body_entered(body):
-	if body.name == 'Enemy':
+	if 'CharacterBody2D' in body.name or 'Enemy' in body.name or 'Bullet' in body.name:
 		life_force -= 1
-		print(life_force)
 
-		

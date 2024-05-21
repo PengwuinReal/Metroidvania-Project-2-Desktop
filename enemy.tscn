@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci3p3nh5uokqc"]
+[gd_scene load_steps=4 format=3 uid="uid://ci3p3nh5uokqc"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_ucbr7"]
+[ext_resource type="PackedScene" uid="uid://6mfeam8bnh3b" path="res://bullet.tscn" id="2_atcue"]
 [ext_resource type="Texture2D" uid="uid://hxdia2si0ty" path="res://Assets/enemy_sprite.png" id="2_r8fbo"]
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(8, 8)
-collision_mask = 3
 script = ExtResource("1_ucbr7")
+bullet_scene = ExtResource("2_atcue")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(25.5, 24)
@@ -17,13 +18,29 @@ texture = ExtResource("2_r8fbo")
 polygon = PackedVector2Array(-8, 56, 56, 56, 56, -8, -8, -8)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(24.5, 24)
+scale = Vector2(3.25, 3.2)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="ColHitbox" type="CollisionPolygon2D" parent="Hitbox"]
+position = Vector2(1, 0)
 polygon = PackedVector2Array(-8, 56, 56, 56, 56, -8, -8, -8)
+
+[node name="BulletFire" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(24, 23)
+scale = Vector2(1, -0.75)
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(0, -1.33333)
+scale = Vector2(3.1, 4.2)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="BulletFire" to="." method="_on_bullet_fire_timeout"]

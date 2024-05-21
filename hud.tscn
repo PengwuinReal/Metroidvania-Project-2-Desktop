@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://7y86rlfsm2np"]
+[gd_scene load_steps=7 format=3 uid="uid://7y86rlfsm2np"]
 
 [ext_resource type="Script" path="res://LifeBar.gd" id="1_enoh1"]
+[ext_resource type="Texture2D" uid="uid://cqow7c1qc2hvl" path="res://Assets/heartsbar1cropped.png" id="1_lbo1j"]
 [ext_resource type="Script" path="res://Kills.gd" id="2_41bvp"]
+[ext_resource type="Texture2D" uid="uid://dtkmbx6l2hf4s" path="res://Assets/blackscreen.png" id="4_3ky7c"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_2thoo"]
+[sub_resource type="LabelSettings" id="LabelSettings_wav1m"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_syyj3"]
+font_size = 60
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,24 +26,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -622.0
-offset_top = -222.0
-offset_right = -620.0
-offset_bottom = -221.0
+offset_left = -558.0
+offset_top = -286.0
+offset_right = -302.0
+offset_bottom = -222.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(196.091, 62.1682)
-max_value = 3.0
-value = 3.0
-texture_progress = SubResource("CanvasTexture_2thoo")
-tint_progress = Color(1, 0, 0, 1)
+max_value = 5.0
+value = 5.0
+nine_patch_stretch = true
+texture_progress = ExtResource("1_lbo1j")
 script = ExtResource("1_enoh1")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 128.0
-offset_right = 368.0
-offset_bottom = 151.0
-scale = Vector2(3.00548, 2.74188)
+[node name="Kills" type="Label" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -286.0
+offset_right = -46.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_wav1m")
+text_direction = 1
 script = ExtResource("2_41bvp")
+
+[node name="BlackBackdrop" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(752, 356)
+scale = Vector2(30, 17.25)
+texture = ExtResource("4_3ky7c")
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_top = 64.0
+offset_right = 1496.0
+offset_bottom = 632.0
+text = "TEMP TEMP
+TEMP: TEMPTEEMP"
+label_settings = SubResource("LabelSettings_syyj3")
+horizontal_alignment = 1
+vertical_alignment = 1
